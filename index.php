@@ -20,9 +20,9 @@ require_once 'includes/header.php';
 
 <section id="home" class="container  flex items-center justify-between mr-10" >
     <div class=" flex flex-col  mx-auto mt-28">
-        <h1 class="text-6xl font-bold  mt-10">Belajar Program di Manapun</h1>
-        <h1 class="text-6xl font-bold  mt-5">Dengan Knowly</h1>
-        <p class="text-xl mt-5">Kami menyediakan berbagai macam materi pemrograman yang dapat diakses secara gratis</p>
+        <h1 class="text-6xl font-bold  mt-10">Belajar Apapun di Manapun</h1>
+        <h1 class="text-6xl font-bold  mt-5">Dengan <span  class="text-techblue">Know</span>  <span class="text-softgray">ly</span></h1>
+        <p class="text-xl mt-5">Kami menyediakan berbagai macam materi berbagai bidang yang dapat diakses secara gratis</p>
 
         <a href=""
            class="self-start mt-8 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700">
@@ -129,7 +129,7 @@ require_once 'includes/header.php';
                 Kenapa mesti belajar di Knowly?
             </h2>
             <p class=" text-lg mt-4 max-w-2xl mx-auto">
-                Berbagai macam materi pemrograman modern yang dirancang khusus untuk membantumu berkembang dari nol sampai siap kerja!
+                Berbagai macam materi dalam berbagai bidang yang dapat diakses secara gratis.
             </p>
         </div>
 
@@ -144,7 +144,7 @@ require_once 'includes/header.php';
                     <span class="text-white font-bold text-xs uppercase text-center tracking-wider block">100% Gratis</span>
                 </div>
                 <p class=" leading-relaxed text-base max-w-sm">
-                    Akses penuh ke semua materi berkualitas tanpa biaya langganan tersembunyi, membantu jutaan developer lokal berkembang.
+                    Akses penuh ke semua materi berkualitas tanpa biaya langganan tersembunyi, membantu jutaan orang berkembang.
                 </p>
             </div>
 
@@ -156,7 +156,7 @@ require_once 'includes/header.php';
                     <span class="text-white font-bold text-xs uppercase text-center tracking-wider block">Kurikulum Top</span>
                 </div>
                 <p class=" leading-relaxed text-base max-w-sm">
-                    Materi disesuaikan dengan standar industri global dan kebutuhan dunia kerja, baik untuk Web, Mobile, maupun Backend.
+                    Materi disesuaikan dengan standar industri global dan kebutuhan dunia kerja, dalam berbagai bidang.
                 </p>
             </div>
 
@@ -167,7 +167,7 @@ require_once 'includes/header.php';
                     <span class="text-white font-bold text-xs uppercase text-center tracking-wider block">Praktik Nyata</span>
                 </div>
                 <p class="leading-relaxed text-base max-w-sm">
-                    Belajar bukan cuma teori. Dilengkapi dengan studi kasus nyata, latihan coding mandiri, dan tips.
+                    Belajar bukan cuma teori. Dilengkapi dengan studi kasus nyata, latihan usecase mandiri, dan tips langsung dari pengajar.
                 </p>
             </div>
 
