@@ -13,6 +13,7 @@
             theme: {
                 extend: {
                     fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
                         brand: ['Poppins', 'sans-serif'],
                         body: ['Inter', 'sans-serif'],
                     },
@@ -44,7 +45,7 @@
 
 
         <div class="flex items-center gap-4 -mr-40">
-            <a href="" class="text-base font-semibold text-gray-700 hover:text-techblue transition-colors">
+            <a href="" class=" font-semibold text-gray-700 hover:text-techblue transition-colors">
                 Masuk
             </a>
             <a href="" class="inline-flex items-center justify-center px-4 py-2 text-base font-bold text-white bg-techblue hover:bg-blue-700 rounded-xl shadow-sm transition-all">

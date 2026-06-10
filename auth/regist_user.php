@@ -1,48 +1,47 @@
-
-
 <?php
+
 session_start();
+
 require_once __DIR__ . '/../config/db.php';
+
+
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
+    $email = $_POST['email'];
     $password = $_POST['password'];
+    $repassword = $_POST['repassword'];
 
-    if (empty($username) || empty($password)) {
+    if (empty($username) || empty($email) || empty($password) || empty($repassword)) {
         $_SESSION['error'] = "Please fill in all fields.";
-        header("Location: login_user.php");
+        header("Location: regist_user.php");
         exit();
     }
 
-    $sql = "SELECT id, username, password, role FROM users WHERE username = ?";
-    $stmt = $conn -> prepare($sql);
-
-    if ($stmt) {
-        $stmt -> bind_param("s", $username);
-        $stmt -> execute();
-        $result = $stmt -> get_result();
-
-        if ($result -> num_rows > 0) {
-            $user = $result -> fetch_assoc();
-
-            if ($password == $user['password']) {
-                $_SESSION['user_id'] = $user['id'];
-                $_SESSION['username'] = $user['username'];
-                $_SESSION['role'] = $user['role'];
-
-                header("Location: ../index.php");
-            }
-        } else {
-            $_SESSION['error'] = "Invalid username or password.";
-            header("Location: login_user.php");
-            exit();
-        }
+    if ($password !== $repassword) {
+        $_SESSION['error'] = "Passwords do not match!";
+        header("Location: regist_user.php");
+        exit();
     }
 
 
-}
+    $sql = "INSERT INTO users (username, email, password) VALUES (?,?,?)";
 
+
+    $pre = $conn -> prepare($sql);
+    $pre -> bind_param("sss", $username, $email, $password);
+
+
+  if ($pre -> execute()) {
+      header("Location: login_user.php");
+  }
+
+
+
+}
 ?>
+
+
 
 <!doctype html>
 <html>
@@ -57,7 +56,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             theme: {
                 extend: {
                     fontFamily: {
-
                         brand: ['Poppins', 'sans-serif'],
                         body: ['Inter', 'sans-serif'],
                     },
@@ -75,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <body>
 <div class="flex min-h-screen items-center justify-center">
     <form method="post" class="flex w-full max-w-md flex-col p-8  bg-white shadow-lg rounded-xl">
-        <h2 class=" text-techblue font-brand font-bold text-center text-4xl">Yuk Login</h2>
+        <h2 class=" text-techblue font-brand font-bold text-center text-4xl">Yuk Daftar</h2>
         <?php if (isset($_SESSION['error'])): ?>
             <div class="mt-5 bg-red-50 border border-red-500 p-3 rounded-md text-sm text-red-700 font-medium">
                 <?php
@@ -84,18 +82,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 ?>
             </div>
         <?php endif; ?>
-        <p class="mt-[30px]">Username:</p>
-        <input type="text" id="username" name="username" placeholder="Enter Your Username" class="border p-3 border-gray-300 rounded-md"/>
+        <p class="mt-[30px]">Email:</p>
+        <input type="text" id="email" name="email" placeholder="Masukkan Email" class="border p-3 border-gray-300 rounded-md"/>
+        <p class="mt-[10px]">Username:</p>
+        <input type="text" id="username" name="username" placeholder="Masukkan Username" class="border p-3 border-gray-300 rounded-md"/>
         <p class="mt-[10px]">Password:</p>
-        <input type="password" id="password" name="password" placeholder="Enter Your Password" class="border p-3 border-gray-300 rounded-md"/>
+        <input type="password" id="password" name="password" placeholder="Masukkan Password" class="border p-3 border-gray-300 rounded-md"/>
+        <p class="mt-[10px]">Masukkan Ulang Password:</p>
+        <input type="password" id="repassword" name="repassword" placeholder="Masukkan Ulang Password" class="border p-3 border-gray-300 rounded-md"/>
 
-        <button type="submit" class="p-3 font-brand rounded-md bg-blue-600 text-white mt-[16px] ">Login</button>
+        <button type="submit" class="p-3 font-brand rounded-md bg-blue-600 text-white mt-[30px] -mt-[30px]">Daftar</button>
 
-        <div class="flex  items-center justify-between mt-[30px]">
-            <a href="regist_user.php" class="text-techblue">Daftar akun</a>
-            <a href="forgot_password.php" class="text-techblue">Lupa password</a>
-            <a href="index.php" class="text-techblue">Login Pengajar</a>
-        </div>
+
     </form>
 
 
@@ -105,5 +103,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </div>
 </body>
 </html>
+
+
+
+
 
 

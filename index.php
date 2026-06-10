@@ -119,7 +119,7 @@ require_once 'includes/header.php';
 </section>
 
 
-<section id="About" class="container mx-auto -mt-40 ">
+<section id="About" class="container mx-auto -mt-40  mt-[100px]">
 
     <div class="container mx-auto max-w-6xl mb-[250px]">
 
@@ -139,9 +139,9 @@ require_once 'includes/header.php';
 
             <div class="flex flex-col items-center">
 
-                <div class="w-32 h-32 rounded-full bg-[#fcd34d] flex items-center justify-center mb-6 overflow-hidden p-2">
+                <div class="w-32 h-32 rounded-full bg-techblue flex items-center justify-center mb-6 overflow-hidden p-2">
 
-                    <span class="text-black font-bold text-xs uppercase text-center tracking-wider block">100% Gratis</span>
+                    <span class="text-white font-bold text-xs uppercase text-center tracking-wider block">100% Gratis</span>
                 </div>
                 <p class=" leading-relaxed text-base max-w-sm">
                     Akses penuh ke semua materi berkualitas tanpa biaya langganan tersembunyi, membantu jutaan developer lokal berkembang.
@@ -151,9 +151,9 @@ require_once 'includes/header.php';
 
             <div class="flex flex-col items-center">
 
-                <div class="w-32 h-32 rounded-full bg-[#fcd34d] flex items-center justify-center mb-6 overflow-hidden p-2">
+                <div class="w-32 h-32 rounded-full bg-techblue flex items-center justify-center mb-6 overflow-hidden p-2">
 
-                    <span class="text-black font-bold text-xs uppercase text-center tracking-wider block">Kurikulum Top</span>
+                    <span class="text-white font-bold text-xs uppercase text-center tracking-wider block">Kurikulum Top</span>
                 </div>
                 <p class=" leading-relaxed text-base max-w-sm">
                     Materi disesuaikan dengan standar industri global dan kebutuhan dunia kerja, baik untuk Web, Mobile, maupun Backend.
@@ -163,8 +163,8 @@ require_once 'includes/header.php';
 
             <div class="flex flex-col items-center">
 
-                <div class="w-32 h-32 rounded-full bg-[#fcd34d] flex items-center justify-center mb-6 overflow-hidden p-2">
-                    <span class="text-black font-bold text-xs uppercase text-center tracking-wider block">Praktik Nyata</span>
+                <div class="w-32 h-32 rounded-full bg-techblue flex items-center justify-center mb-6 overflow-hidden p-2">
+                    <span class="text-white font-bold text-xs uppercase text-center tracking-wider block">Praktik Nyata</span>
                 </div>
                 <p class="leading-relaxed text-base max-w-sm">
                     Belajar bukan cuma teori. Dilengkapi dengan studi kasus nyata, latihan coding mandiri, dan tips.
