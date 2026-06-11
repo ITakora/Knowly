@@ -1,16 +1,23 @@
 <?php
 session_start();
-include 'koneksi.php';
+require_once '../config/db.php';
 
-
-if (!isset($_SESSION['nama_user'])) {
-    $_SESSION['nama_user'] = "Hudan Nendra";
+if (!isset($_SESSION['username'])) {
+    header("Location: index.php");
+    exit();
 }
 
+$sql = "SELECT * FROM class";
+$stmt = $conn -> prepare($sql);
+$stmt -> execute();
+$result = $stmt -> get_result();
 
-$nama_pengguna = isset($_SESSION['nama_user']) ? $_SESSION['nama_user'] : 'Tamu';
+
+
+
+$nama_pengguna = $_SESSION['username'];
 $inisial_avatar = strtoupper(substr($nama_pengguna, 0, 1));
-$query_kelas = mysqli_query($koneksi, "SELECT * FROM kelas");
+
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -91,18 +98,21 @@ $query_kelas = mysqli_query($koneksi, "SELECT * FROM kelas");
 
     <div class="class-grid">
         <?php
-        if (mysqli_num_rows($query_kelas) > 0) {
-            while($row = mysqli_fetch_array($query_kelas)) {
+
+        if ($result->num_rows > 0) {
+
+            while($row = $result->fetch_assoc()) {
                 ?>
-                <a href="detail_kelas.php?id=<?= $row['id_kelas']; ?>" class="class-card">
+                <a href="detail_kelas.php?id=<?= $row['id']; ?>" class="class-card">
                     <div class="class-card-body">
-                        <span class="class-badge"><?= $row['prodi']; ?></span>
-                        <h3><?= $row['nama_kelas']; ?></h3>
+                        <span class="class-badge"><?= htmlspecialchars($row['tipe']); ?></span>
+
+                        <h3><?= htmlspecialchars($row['name']); ?></h3>
 
                         <div class="meta-group">
                             <div class="class-meta">
                                 <span class="meta-label">Kode Modul</span>
-                                <span class="meta-value"><?= $row['kode_kelas']; ?></span>
+                                <span class="meta-value">MOD-00<?= $row['id']; ?></span>
                             </div>
                         </div>
                     </div>

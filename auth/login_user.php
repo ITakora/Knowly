@@ -30,15 +30,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $_SESSION['username'] = $user['username'];
                 $_SESSION['role'] = $user['role'];
 
-                header("Location: ../index.php");
+                header("Location: ../student/student_dashboard.php");
+            } else {
+
+            $_SESSION['error'] = "Invalid username or password.";
+            header("Location: login_user.php");
             }
         } else {
             $_SESSION['error'] = "Invalid username or password.";
             header("Location: login_user.php");
-            exit();
         }
-    }
+        exit();
 
+    }
 
 }
 
