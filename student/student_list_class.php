@@ -103,7 +103,7 @@ $inisial_avatar = strtoupper(substr($nama_pengguna, 0, 1));
 
             while($row = $result->fetch_assoc()) {
                 ?>
-                <a href="detail_kelas.php?id=<?= $row['id']; ?>" class="class-card">
+                <a href="student_list_materi.php?id=<?= $row['id']; ?>" class="class-card">
                     <div class="class-card-body">
                         <span class="class-badge"><?= htmlspecialchars($row['tipe']); ?></span>
 
