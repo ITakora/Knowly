@@ -69,8 +69,8 @@ if ($stmt_class) {
         .materi-item { display: flex; justify-content: space-between; align-items: center; background: #F8FAFC; border: 1px solid #E2E8F0; padding: 14px 20px; border-radius: 8px; margin-bottom: 10px; }
         .btn-download {background: #ffffff; border: 1px solid #E2E8F0; text-decoration: none; color: #1D63ED; font-size: 12px; font-weight: 600; padding: 6px 14px; border-radius: 6px; transition: 0.2s;}
         .btn-download:hover {background: #EFF6FF; border-color: #BFDBFE;}
-        .btn-yt { border: 1px solid #E2E8F0; color: #1D63ED; text-decoration: none; font-size: 12px; font-weight: 600; padding: 6px 14px; border-radius: 6px; transition: 0.2s; margin-right: 5px;}
-        .btn-yt:hover {background: #FEE2E2;}
+        .btn-yt { background: #ffffff; border: 1px solid #E2E8F0; color: #1D63ED; text-decoration: none; font-size: 12px; font-weight: 600; padding: 6px 14px; border-radius: 6px; transition: 0.2s; margin-right: 5px; cursor: pointer;}
+        .btn-yt:hover {background: #EFF6FF;}
         .empty-materi { text-align: center; color: #94A3B8; font-size: 13px; padding: 30px 0; }
         .bottom-actions { display: flex; gap: 15px; margin-top: 25px; padding-top: 20px; border-top: 1px dashed #E5E7EB; }
         .btn-exam { flex: 1; padding: 12px; border-radius: 8px; text-align: center; text-decoration: none; font-weight: 600; font-size: 14px; color: #ffffff; transition: 0.2s; }
@@ -136,8 +136,8 @@ if ($stmt_class) {
                                         <?php if (!empty($materi['youtube_url'])): ?>
                                             <?php $embed_url = getEmbedUrl($materi['youtube_url']); ?>
 
-                                            <button onclick="openVideo('<?= $embed_url; ?>')" class="btn-yt" style="cursor: pointer;">
-                                                Lihat Video
+                                            <button onclick="openVideo('<?= $embed_url; ?>')" class="btn-yt">
+                                                ▶︎ Lihat Video
                                             </button>
                                         <?php endif; ?>
 
