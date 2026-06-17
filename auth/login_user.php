@@ -4,6 +4,11 @@
 session_start();
 require_once __DIR__ . '/../config/db.php';
 
+if (isset($_SESSION['username'])) {
+    header("Location: ../student/student_list_class.php");
+    exit();
+}
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
     $password = $_POST['password'];

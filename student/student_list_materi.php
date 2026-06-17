@@ -37,7 +37,7 @@ if ($stmt_class) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Ruang Kelas</title>
+    <title>Materi</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
@@ -90,12 +90,12 @@ if ($stmt_class) {
 </head>
 <body>
 <nav class="navbar">
-    <a href="../index.php" class="logo"><span class="techblue">Know</span> <span class="softgray">ly</span></a>
+    <a href="" class="logo"><span class="techblue">Know</span> <span class="softgray">ly</span></a>
     <div class="nav-right">
         <a href="student_list_class.php" class="btn-back">← Kembali</a>
         <div class="user-profile-container">
             <div class="profile-text">
-                <span class="greeting">Ruang Belajar</span>
+                <span class="greeting">Halo, Selamat Datang</span>
                 <span class="user-name"><?= htmlspecialchars($nama_pengguna) ?></span>
             </div>
             <div class="profile-avatar"><?= $inisial_avatar ?></div>
@@ -125,9 +125,9 @@ if ($stmt_class) {
                                 <div class="materi-item">
                                     <div>
                                         <h5 style="font-size: 13.5px; font-weight: 600; color: #111;">
-                                            <a href="halaman_materi.php?id=<?= $materi['id_material']; ?>" style="color: #111; text-decoration: none;" onmouseover="this.style.color='#1D63ED'" onmouseout="this.style.color='#111'">
+                                            <p>
                                                 <?= htmlspecialchars($materi['tittle_material']); ?>
-                                            </a>
+                                            </p>
                                         </h5>
 
                                     </div>
@@ -137,7 +137,7 @@ if ($stmt_class) {
                                             <?php $embed_url = getEmbedUrl($materi['youtube_url']); ?>
 
                                             <button onclick="openVideo('<?= $embed_url; ?>')" class="btn-yt" style="cursor: pointer;">
-                                                ▶ Lihat Video
+                                                Lihat Video
                                             </button>
                                         <?php endif; ?>
 

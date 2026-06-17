@@ -1,5 +1,9 @@
 <?php
-
+session_start();
+if (isset($_SESSION['username'])) {
+    header("Location: student/student_list_class.php");
+    exit();
+}
 require_once 'includes/header.php';
 ?>
 

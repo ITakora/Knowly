@@ -75,7 +75,7 @@ $inisial_avatar = strtoupper(substr($nama_pengguna, 0, 1));
 <body>
 
 <nav class="navbar">
-    <a href="index.php" class="logo"><span class="techblue">Know</span> <span class="softgray">ly</span></a>
+    <a href="" class="logo"><span class="techblue">Know</span> <span class="softgray">ly</span></a>
 
     <div class="user-profile-container">
         <div class="profile-text">
