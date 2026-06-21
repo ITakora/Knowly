@@ -5,7 +5,7 @@ require_once '../helper/embed_url.php';;
 
 if (!isset($_SESSION['username'])) {
     header("Location: ../index.php");
-    exit;
+    exit();
 }
 
 $nama_pengguna = $_SESSION['username'];
