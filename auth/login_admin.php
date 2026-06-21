@@ -5,7 +5,7 @@ session_start();
 require_once __DIR__ . '/../config/db.php';
 
 if (isset($_SESSION['username']) && isset($_SESSION['role']) && $_SESSION['role'] === 'admin') {
-    header("Location: ../teacher/teacher_update_materi.php");
+    header("Location: ../teacher/teacher_list_class.php");
     exit();
 }
 
@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $_SESSION['username'] = $user['username'];
                 $_SESSION['role'] = $user['role'];
 
-                header("Location: ../teacher/teacher_update_materi.php");
+                header("Location: ../teacher/teacher_list_class.php");
             } else {
 
                 $_SESSION['error'] = "Invalid username or password.";
