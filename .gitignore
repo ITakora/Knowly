@@ -1,1 +1,4 @@
 config/db.php
+.idea/
+teacher/uploads/*
+!teacher/uploads/.gitkeep
