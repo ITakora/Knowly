@@ -103,27 +103,8 @@ $result = $stmt->get_result();
             $id_jangkar = 0;
         }
         ?>
-    </div> <?php if($id_jangkar > 0): ?>
-        <div style="background: <?php echo $role_sekarang == 'admin' ? '#fff3cd' : '#f8f9fa'; ?>; border: 2px dashed <?php echo $role_sekarang == 'admin' ? '#fbbc05' : '#1A73E8'; ?>; padding: 25px; border-radius: 12px; text-align: center; margin-top: 40px;">
+    </div>
 
-            <?php if($role_sekarang == 'admin'): ?>
-                <h3 style="margin-bottom: 5px; color:#856404;">⚠️ KONTROL EVALUASI UJIAN (DOSEN)</h3>
-                <p style="font-size: 13px; color: #856404; margin-bottom: 15px;">Klik tombol di bawah ini untuk mengunggah soal atau memeriksa status lembar jawaban UTS/UAS mahasiswa.</p>
-            <?php else: ?>
-                <h3 style="margin-bottom: 5px; color:#333;">Menu Evaluasi Kelas</h3>
-                <p style="font-size: 13px; color: #5f6368; margin-bottom: 15px;">Silakan akses berkas soal dan kumpulkan lembar jawaban Anda melalui link di bawah ini.</p>
-            <?php endif; ?>
-
-            <div style="display: flex; justify-content: center; gap: 15px;">
-                <a href="halaman_ujian.php?id=<?php echo $id_jangkar; ?>&jenis=uts" style="border: 1px solid #34a853; background: <?php echo $role_sekarang == 'admin' ? '#34a853' : 'transparent'; ?>; color: <?php echo $role_sekarang == 'admin' ? 'white' : '#34a853'; ?>; text-decoration: none; padding: 10px 25px; font-weight:600; border-radius:6px; font-size: 14px;">
-                    <?php echo $role_sekarang == 'admin' ? '⚙️ Kelola UTS' : 'Menu UTS'; ?>
-                </a>
-                <a href="halaman_ujian.php?id=<?php echo $id_jangkar; ?>&jenis=uas" style="border: 1px solid #ea4335; background: <?php echo $role_sekarang == 'admin' ? '#ea4335' : 'transparent'; ?>; color: <?php echo $role_sekarang == 'admin' ? 'white' : '#ea4335'; ?>; text-decoration: none; padding: 10px 25px; font-weight:600; border-radius:6px; font-size: 14px;">
-                    <?php echo $role_sekarang == 'admin' ? '⚙️ Kelola UAS' : 'Menu UAS'; ?>
-                </a>
-            </div>
-        </div>
-    <?php endif; ?>
 
 </div>
 

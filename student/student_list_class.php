@@ -3,7 +3,7 @@
 require_once '../config/db.php';
 include '../includes/header_teacher.php';;
 
-if (!isset($_SESSION['username'])) {
+if (!isset($_SESSION['username']) && !isset($_SESSION['role']) && $_SESSION['role'] !== 'admin') {
     header("Location: ../index.php");
     exit();
 }

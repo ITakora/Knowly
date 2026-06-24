@@ -178,10 +178,7 @@ if ($stmt_class) {
                     }
                     ?>
                 </div>
-                <div class="bottom-actions">
-                    <a href="detail_kelas.php?id=<?= $id; ?>&ujian=uts" class="btn-exam btn-uts">Ujian Tengah Semester (UTS)</a>
-                    <a href="detail_kelas.php?id=<?= $id; ?>&ujian=uas" class="btn-exam btn-uas">Ujian Akhir Semester (UAS)</a>
-                </div>
+
             </div>
         </div>
     </div>
