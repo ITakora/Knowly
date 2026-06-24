@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit();
     }
 
-    $sql = "SELECT id, username, password, role FROM users WHERE username = ?";
+    $sql = "SELECT id, username, password, role FROM users WHERE username = ? AND role = 'student'";
     $stmt = $conn -> prepare($sql);
 
     if ($stmt) {
@@ -30,10 +30,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($result -> num_rows > 0) {
             $user = $result -> fetch_assoc();
 
-            if ($password == $user['password']) {
+            if ($password == $user['password'] && $user['role'] == 'student') {
                 $_SESSION['user_id'] = $user['id'];
                 $_SESSION['username'] = $user['username'];
-                $_SESSION['role'] = $user['role'];
 
                 header("Location: ../student/student_list_class.php");
             } else {
@@ -103,7 +102,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <div class="flex  items-center justify-between mt-[30px]">
             <a href="regist_user.php" class="text-techblue">Daftar akun</a>
             <a href="forgot_password.php" class="text-techblue">Lupa password</a>
-            <a href="index.php" class="text-techblue">Login Pengajar</a>
+            <a href="login_admin.php" class="text-techblue">Login Pengajar</a>
         </div>
     </form>
 

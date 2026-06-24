@@ -10,8 +10,8 @@ include '../includes/header_teacher.php';
 //}
 
 
-//$id = isset($_GET['id']) ? intval($_GET['id']) : 0;
-$id = 1;
+$id = isset($_GET['id']) ? intval($_GET['id']) : 0;
+
 $sql = "SELECT * FROM materials WHERE id_material = ?";
 $stmt = $conn->prepare($sql);
 
@@ -43,7 +43,12 @@ if(!$data) {
 </style>
 
 <div style="max-width:600px; margin: 40px auto 10px auto; padding:0 20px;">
-    <a href="user_materi.php?modul=<?php echo $data['id_class']; ?>" style="text-decoration:none; color:#1A73E8; font-size:14px;">← Kembali ke List</a>
+    <div style="max-width:600px; margin: 40px auto 10px auto; padding:0 20px;">
+        <a href="teacher_list_materi.php?modul=<?php echo $data['id_class']; ?>"
+           style="text-decoration:none; color:#1A73E8; font-size:14px;">
+            ← Kembali ke Daftar Materi
+        </a>
+    </div>
 </div>
 
 <div class="form-container">

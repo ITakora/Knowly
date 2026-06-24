@@ -11,11 +11,11 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
 
 
 $role_sekarang = $_SESSION['role'];
-$id = isset($_GET['id']) ? $_GET['id'] : '';
+$id_class = isset($_GET['modul']) ? intval($_GET['modul']) : 0;
 
 
 $sql = "SELECT * FROM materials WHERE id_class = ?";
-$params = [$id];
+$params = [$id_class];
 $types = "i";
 
 // 3. If there is a search, add it
@@ -37,7 +37,7 @@ $result = $stmt->get_result();
 <div class="main-container" style="max-width: 1100px; margin: 30px auto; padding: 0 20px;">
 
     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-        <a href="index.php" style="text-decoration: none; color: #1A73E8; font-weight: 500;">← Kembali ke Dashboard</a>
+        <a href="teacher_list_class.php" style="text-decoration: none; color: #1A73E8; font-weight: 500;">← Kembali ke Dashboard</a>
 
         <form action="" method="GET">
             <input type="hidden" name="modul" value="<?php echo $id_class; ?>">
@@ -87,7 +87,7 @@ $result = $stmt->get_result();
                         </div>
                         <?php if ($role_sekarang == 'admin'): ?>
                             <div style="display: flex; gap: 10px;">
-                                <a href="admin_edit.php?id=<?php echo $row['id_material']; ?>" style="background: #fbbc05; color: black; text-decoration: none; padding: 8px 16px; border-radius: 6px; font-size: 14px; font-weight: 500;">Update</a>
+                                <a href="teacher_update_materi.php?id=<?php echo $row['id_material']; ?>" style="background: #fbbc05; color: black; text-decoration: none; padding: 8px 16px; border-radius: 6px; font-size: 14px; font-weight: 500;">Update</a>
                                 <a href="proses_materi.php?aksi=delete&id=<?php echo $row['id_material']; ?>&modul=<?php echo $id_class; ?>" style="background: #ea4335; color: white; text-decoration: none; padding: 8px 16px; border-radius: 6px; font-size: 14px; font-weight: 500;" onclick="return confirm('Apakah Anda yakin ingin menghapus materi ini?')">Delete</a>
                             </div>
                         <?php endif; ?>
