@@ -3,11 +3,11 @@ session_start();
 
 // Proteksi mendasar: Jika belum login, tendang paksa balik ke halaman login.php
 if (!isset($_SESSION['username'])) {
-    header("Location: login.php");
+    header("Location: ../index.php");
     exit;
 }
 
-// Mengambil inisial huruf pertama untuk avatar bulat
+
 $inisial = strtoupper(substr($_SESSION['username'], 0, 1));
 ?>
 <!DOCTYPE html>
@@ -35,12 +35,26 @@ $inisial = strtoupper(substr($_SESSION['username'], 0, 1));
         .dropdown-menu a { display: block; padding: 12px 15px; text-decoration: none; color: #333; font-size: 14px; transition: 0.2s; }
         .dropdown-menu a:hover { background-color: #E8EAED; }
         .dropdown-menu a.logout { color: #d93025; border-top: 1px solid #E8EAED; }
+        .logout-btn {
+            background: #EA4335;
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: 0.2s;
+            cursor: pointer;
+        }
+        .logout-btn:hover {
+            background: #C5221F;
+        }
     </style>
 </head>
 <body>
 
 <nav class="navbar">
-    <a href="index.php" class="logo">Know<span>ly</span></a>
+    <p  class="logo">Know<span>ly</span></p>
     <div class="nav-right">
         <div class="user-info">
             <p>Halo, Selamat Datang</p>
@@ -48,28 +62,23 @@ $inisial = strtoupper(substr($_SESSION['username'], 0, 1));
         </div>
         <div class="avatar"><?php echo $inisial; ?></div>
 
-        <div class="menu-container">
-            <button class="hamburger-btn" onclick="toggleMenu()">☰</button>
-            <div class="dropdown-menu" id="myDropdown">
-                <a href="index.php">Home</a>
-                <a href="logout.php" class="logout">Logout</a>
-            </div>
+        <a href="../auth/logout.php" class="logout-btn" onclick="return confirm('Apakah Anda yakin ingin logout?')">Logout</a>
         </div>
-    </div>
+
 </nav>
 
-<script>
-    function toggleMenu() {
-        var x = document.getElementById("myDropdown");
-        x.style.display = (x.style.display === "block") ? "none" : "block";
-    }
-    window.onclick = function(event) {
-        if (!event.target.matches('.hamburger-btn')) {
-            var dropdowns = document.getElementsByClassName("dropdown-menu");
-            for (var i = 0; i < dropdowns.length; i++) {
-                var openDropdown = dropdowns[i];
-                if (openDropdown.style.display === "block") { openDropdown.style.display = "none"; }
-            }
-        }
-    }
-</script>
+<!--<script>-->
+<!--    function toggleMenu() {-->
+<!--        var x = document.getElementById("myDropdown");-->
+<!--        x.style.display = (x.style.display === "block") ? "none" : "block";-->
+<!--    }-->
+<!--    window.onclick = function(event) {-->
+<!--        if (!event.target.matches('.hamburger-btn')) {-->
+<!--            var dropdowns = document.getElementsByClassName("dropdown-menu");-->
+<!--            for (var i = 0; i < dropdowns.length; i++) {-->
+<!--                var openDropdown = dropdowns[i];-->
+<!--                if (openDropdown.style.display === "block") { openDropdown.style.display = "none"; }-->
+<!--            }-->
+<!--        }-->
+<!--    }-->
+<!--</script>-->

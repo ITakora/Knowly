@@ -4,10 +4,7 @@
 require_once '../config/db.php';
 include '../includes/header_teacher.php';
 
-//if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
-//    echo "<script>alert('Akses Ditolak! Halaman ini hanya khusus untuk Admin/Dosen.'); window.location='index.php';</script>";
-//    exit;
-//}
+
 
 
 $id = isset($_GET['id']) ? intval($_GET['id']) : 0;
@@ -30,7 +27,6 @@ if(!$data) {
 ?>
 
 <style>
-    /* ini Style form edit */
     .form-container { max-width: 600px; margin: 5px auto 50px auto; background: #ffffff; border: 1px solid #E8EAED; border-radius: 12px; padding: 30px; position: relative; }
     .btn-close-x { position: absolute; top: 25px; right: 30px; text-decoration: none; color: #5f6368; font-size: 22px; font-weight: bold; }
     .form-container h2 { font-size: 22px; margin-bottom: 25px; color: #1A73E8; }
@@ -52,14 +48,14 @@ if(!$data) {
 </div>
 
 <div class="form-container">
-    <a href="admin_materi.php?modul=<?php echo $data['id_class']; ?>" class="btn-close-x">✕</a>
+
 
     <h2>Update Data Materi</h2>
 
     <?php
-    // Grab the exact columns from your new materials table
     $file_name   = $data['file_name'] ;
     $youtube_url = $data['youtube_url'] ;
+    $status_quiz = isset($data['status_quiz']) ? $data['status_quiz'] : 0;
     ?>
 
     <form action="process_materi.php?aksi=update" method="POST" enctype="multipart/form-data">
@@ -93,8 +89,19 @@ if(!$data) {
             <?php endif; ?>
         </div>
 
+        <div class="switch-container">
+            <div>
+                <span style="font-size: 14px; font-weight: 600; color: #166534; display: block;">Aktifkan Akses Quiz</span>
+                <small style="color: #16A34A; font-size: 12px;">Jika aktif, mahasiswa dapat melihat dan mengerjakan quiz.</small>
+            </div>
+            <label class="switch">
+                <input type="checkbox" name="status_quiz" value="1" <?php echo ($status_quiz == 1) ? 'checked' : ''; ?>>
+                <span class="slider"></span>
+            </label>
+        </div>
+
         <div class="footer-buttons">
-            <a href="admin_materi.php?modul=<?php echo $data['id_class']; ?>" class="btn-batal">Batal</a>
+
             <button type="submit" class="btn-submit">Simpan Perubahan</button>
         </div>
     </form>

@@ -1,11 +1,8 @@
 <?php
-session_start();
-require_once '../config/db.php';
 
-if (!isset($_SESSION['username'])) {
-    header("Location: index.php");
-    exit();
-}
+require_once '../config/db.php';
+include '../includes/header_teacher.php';
+
 
 $sql = "SELECT * FROM class";
 $stmt = $conn -> prepare($sql);
@@ -74,24 +71,7 @@ $inisial_avatar = strtoupper(substr($nama_pengguna, 0, 1));
 </head>
 <body>
 
-<nav class="navbar">
-    <a href="" class="logo"><span class="techblue">Know</span> <span class="softgray">ly</span></a>
 
-    <div class="user-profile-container">
-        <div class="profile-text">
-            <span class="greeting">Halo, Selamat Datang</span>
-            <span class="user-name"><?= htmlspecialchars($nama_pengguna) ?></span>
-        </div>
-        <div class="profile-avatar"><?= $inisial_avatar ?></div>
-    </div>
-</nav>
-
-<div class="welcome-section">
-    <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
-        <h1>Selamat Datang di Ruang Belajar Know ly</h1>
-
-    </div>
-</div>
 
 <div class="container">
     <h2 class="section-title">Daftar Kelas Anda</h2>

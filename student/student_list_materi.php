@@ -1,7 +1,8 @@
 <?php
-session_start();
+
 require_once '../config/db.php';
-require_once '../helper/embed_url.php';;
+require_once '../helper/embed_url.php';
+include '../includes/header_teacher.php';
 
 if (!isset($_SESSION['username'])) {
     header("Location: ../index.php");
@@ -89,22 +90,15 @@ if ($stmt_class) {
     </style>
 </head>
 <body>
-<nav class="navbar">
-    <a href="" class="logo"><span class="techblue">Know</span> <span class="softgray">ly</span></a>
-    <div class="nav-right">
-        <a href="student_list_class.php" class="btn-back">← Kembali</a>
-        <div class="user-profile-container">
-            <div class="profile-text">
-                <span class="greeting">Halo, Selamat Datang</span>
-                <span class="user-name"><?= htmlspecialchars($nama_pengguna) ?></span>
-            </div>
-            <div class="profile-avatar"><?= $inisial_avatar ?></div>
-        </div>
-    </div>
-</nav>
+
 
         <div class="main-content">
             <div class="panel-card" style="border-top: 4px solid #1D63ED;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+
+                    <a href="student_list_class.php" style="text-decoration: none; color: #1A73E8; font-weight: 500;">← Kembali ke Kelas</a>
+
+                </div>
                 <div class="panel-header">
                     <h3 class="panel-heading">Daftar Berkas & Materi Kelas</h3>
                 </div>
@@ -142,8 +136,17 @@ if ($stmt_class) {
                                         <?php endif; ?>
 
                                         <?php if (!empty($materi['file_name'])): ?>
-                                            <a href="../uploads/<?= htmlspecialchars($materi['file_name']); ?>" target="_blank" class="btn-download">
+                                            <a href="../teacher/uploads/<?= htmlspecialchars($materi['file_name']); ?>" target="_blank" class="btn-download">
                                                 Lihat File
+                                            </a>
+                                        <?php endif; ?>
+                                        <?php if ($materi['status_quiz'] == 1): ?>
+                                            <a href="halaman_quiz.php?id_materi=<?= $materi['id_material']; ?>" class="btn-download"  style="margin-left: 5px;" >
+                                                📝 Kerjakan Quiz
+                                            </a>
+                                        <?php else: ?>
+                                            <a href="#"  onclick="alert('Fitur quiz sedang ditutup atau belum diaktifkan oleh pengajar!')  " class="btn-download" style="  cursor: not-allowed; margin-left: 5px; display: inline-block;">
+                                                🔒 Quiz Ditutup
                                             </a>
                                         <?php endif; ?>
                                         </div>
