@@ -62,7 +62,7 @@ if(!$data) {
     $youtube_url = $data['youtube_url'] ;
     ?>
 
-    <form action="proses_materi.php?aksi=update" method="POST" enctype="multipart/form-data">
+    <form action="process_materi.php?aksi=update" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="id_materi" value="<?php echo $data['id_material']; ?>">
         <input type="hidden" name="kode_modul" value="<?php echo $data['id_class']; ?>">
 

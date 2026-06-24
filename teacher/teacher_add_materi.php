@@ -35,7 +35,7 @@ $id_class = isset($_GET['modul']) ? intval($_GET['modul']) : 0;
 
     <h2>Tambah Materi Baru</h2>
 
-    <form action="proses_materi.php?aksi=insert" method="POST" enctype="multipart/form-data">
+    <form action="process_materi.php?aksi=insert" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="id_class" value="<?php echo $id_class; ?>">
 
         <div class="form-group">

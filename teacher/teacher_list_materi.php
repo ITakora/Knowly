@@ -51,7 +51,7 @@ $result = $stmt->get_result();
     <?php if ($role_sekarang == 'admin'): ?>
         <div style="background: #e8f0fe; border: 1px solid #1A73E8; padding: 15px; border-radius: 8px; margin-bottom: 25px; display: flex; justify-content: space-between; align-items: center;">
             <span style="color: #1A73E8; font-weight: 500;">Mode Dosen Aktif: Anda dapat mengelola materi pada kelas ini.</span>
-            <a href="admin_upload.php?modul=<?php echo $id_class; ?>" style="background: #1A73E8; color: white; text-decoration: none; padding: 10px 20px; border-radius: 6px; font-weight: 600; font-size: 14px;">+ Tambah Materi Baru</a>
+            <a href="teacher_add_materi.php?modul=<?php echo $id_class; ?>" style="background: #1A73E8; color: white; text-decoration: none; padding: 10px 20px; border-radius: 6px; font-weight: 600; font-size: 14px;">+ Tambah Materi Baru</a>
         </div>
     <?php endif; ?>
 
