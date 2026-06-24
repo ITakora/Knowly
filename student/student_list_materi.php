@@ -124,6 +124,25 @@ if ($stmt_class) {
                                             </p>
                                         </h5>
 
+                                        <?php
+                                        $sql_cek_quiz = "SELECT COUNT(*) as total FROM quiz WHERE id_material = ?";
+                                        $stmt_cek = $conn->prepare($sql_cek_quiz);
+                                        $stmt_cek->bind_param("i", $materi['id_material']);
+                                        $stmt_cek->execute();
+                                        $ada_quiz = $stmt_cek->get_result()->fetch_assoc()['total'] > 0;
+                                        ?>
+
+                                        <?php if ($ada_quiz): ?>
+                                            <a href="student_quiz.php?id_materi=<?= $materi['id_material']; ?>"
+                                               style="display: inline-block; margin-top: 6px; font-size: 11px; font-weight: 600; color: #ffffff; background: #1D63ED; padding: 4px 12px; border-radius: 8px; text-decoration: none;">
+                                                📝 Kerjakan Quiz
+                                            </a>
+                                        <?php else: ?>
+                                            <span style="display: inline-block; margin-top: 6px; font-size: 11px; font-weight: 600; color: #9CA3AF; background: #F3F4F6; padding: 4px 12px; border-radius: 8px; cursor: not-allowed;">
+                                                 🔒 Belum Ada Quiz
+                                            </span>
+                                        <?php endif; ?>
+
                                     </div>
                                     <div class="materi-actions">
 
@@ -140,15 +159,7 @@ if ($stmt_class) {
                                                 Lihat File
                                             </a>
                                         <?php endif; ?>
-                                        <?php if ($materi['status_quiz'] == 1): ?>
-                                            <a href="halaman_quiz.php?id_materi=<?= $materi['id_material']; ?>" class="btn-download"  style="margin-left: 5px;" >
-                                                📝 Kerjakan Quiz
-                                            </a>
-                                        <?php else: ?>
-                                            <a href="#"  onclick="alert('Fitur quiz sedang ditutup atau belum diaktifkan oleh pengajar!')  " class="btn-download" style="  cursor: not-allowed; margin-left: 5px; display: inline-block;">
-                                                🔒 Quiz Ditutup
-                                            </a>
-                                        <?php endif; ?>
+
                                         </div>
 
 

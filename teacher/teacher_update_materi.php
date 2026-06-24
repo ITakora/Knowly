@@ -55,7 +55,7 @@ if(!$data) {
     <?php
     $file_name   = $data['file_name'] ;
     $youtube_url = $data['youtube_url'] ;
-    $status_quiz = isset($data['status_quiz']) ? $data['status_quiz'] : 0;
+//    $status_quiz = isset($data['status_quiz']) ? $data['status_quiz'] : 0;
     ?>
 
     <form action="process_materi.php?aksi=update" method="POST" enctype="multipart/form-data">
@@ -94,10 +94,10 @@ if(!$data) {
                 <span style="font-size: 14px; font-weight: 600; color: #166534; display: block;">Aktifkan Akses Quiz</span>
                 <small style="color: #16A34A; font-size: 12px;">Jika aktif, mahasiswa dapat melihat dan mengerjakan quiz.</small>
             </div>
-            <label class="switch">
-                <input type="checkbox" name="status_quiz" value="1" <?php echo ($status_quiz == 1) ? 'checked' : ''; ?>>
-                <span class="slider"></span>
-            </label>
+<!--            <label class="switch">-->
+<!--                <input type="checkbox" name="status_quiz" value="1" --><?php //echo ($status_quiz == 1) ? 'checked' : ''; ?><!-->-->
+<!--                <span class="slider"></span>-->
+<!--            </label>-->
         </div>
 
         <div class="footer-buttons">
