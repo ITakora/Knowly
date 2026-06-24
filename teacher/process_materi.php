@@ -61,7 +61,7 @@ if ($aksi == 'update') {
 
     $file_name = !empty($res_old['file_name']) ? $res_old['file_name'] : NULL;
 
-    // 2. Clear handling for file uploads
+
     if (isset($_FILES['file_materi']) && $_FILES['file_materi']['name'] != '') {
         if ($_FILES['file_materi']['error'] == 0) {
             $target_dir = "uploads/";
@@ -94,6 +94,39 @@ if ($aksi == 'update') {
     }
 
     header("Location: teacher_list_materi.php?modul=" . $id_class);
+    exit();
+}
+
+
+if (isset($_GET['aksi']) && $_GET['aksi'] == 'delete') {
+    $id_to_delete = isset($_GET['id']) ? intval($_GET['id']) : 0;
+    $id_class_back = isset($_GET['modul']) ? intval($_GET['modul']) : 0;
+
+    if ($id_to_delete > 0) {
+        $query_file = "SELECT file_name FROM materials WHERE id_material = ?";
+        $stmt_file = $conn->prepare($query_file);
+        $stmt_file->bind_param("i", $id_to_delete);
+        $stmt_file->execute();
+        $res_file = $stmt_file->get_result()->fetch_assoc();
+
+
+        if (!empty($res_file['file_name'])) {
+            $target_file = "uploads/" . $res_file['file_name'];
+            if (file_exists($target_file)) {
+                unlink($target_file);
+            }
+        }
+
+
+        $sql_delete = "DELETE FROM materials WHERE id_material = ?";
+        $stmt_delete = $conn->prepare($sql_delete);
+        if ($stmt_delete) {
+            $stmt_delete->bind_param("i", $id_to_delete);
+            $stmt_delete->execute();
+        }
+    }
+
+    header("Location: teacher_list_materi.php?modul=" . $id_class_back);
     exit();
 }
 ?>

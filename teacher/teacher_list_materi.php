@@ -88,7 +88,7 @@ $result = $stmt->get_result();
                         <?php if ($role_sekarang == 'admin'): ?>
                             <div style="display: flex; gap: 10px;">
                                 <a href="teacher_update_materi.php?id=<?php echo $row['id_material']; ?>" style="background: #fbbc05; color: black; text-decoration: none; padding: 8px 16px; border-radius: 6px; font-size: 14px; font-weight: 500;">Update</a>
-                                <a href="proses_materi.php?aksi=delete&id=<?php echo $row['id_material']; ?>&modul=<?php echo $id_class; ?>" style="background: #ea4335; color: white; text-decoration: none; padding: 8px 16px; border-radius: 6px; font-size: 14px; font-weight: 500;" onclick="return confirm('Apakah Anda yakin ingin menghapus materi ini?')">Delete</a>
+                                <a href="process_materi.php?aksi=delete&id=<?php echo $row['id_material']; ?>&modul=<?php echo $id_class; ?>" style="background: #ea4335; color: white; text-decoration: none; padding: 8px 16px; border-radius: 6px; font-size: 14px; font-weight: 500;" onclick="return confirm('Apakah Anda yakin ingin menghapus materi ini?')">Delete</a>
                             </div>
                         <?php endif; ?>
 
