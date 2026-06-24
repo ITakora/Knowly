@@ -2,7 +2,7 @@
 
 $db_name = 'e_learning';
 $username = 'knowlyuser';
-$password = 'YourPassword';
+$password = 'Aris2007$';
 $host = 'localhost';
 
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
