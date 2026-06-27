@@ -4,6 +4,8 @@ require_once '../config/db.php';
 include '../includes/header_teacher.php';
 
 
+$id_class = isset($_GET['modul']) ? intval($_GET['modul']) : 0;
+
 $sql = "SELECT * FROM class";
 $stmt = $conn -> prepare($sql);
 $stmt -> execute();
@@ -73,8 +75,13 @@ $inisial_avatar = strtoupper(substr($nama_pengguna, 0, 1));
 
 
 
-<div class="container">
+<div class="container" style="margin-top: 20px;">
     <h2 class="section-title">Daftar Kelas Anda</h2>
+
+    <div style=" margin-bottom: 25px; display: flex; justify-content: space-between; align-items: center;">
+
+        <a href="teacher_add_class.php" style="background: #1A73E8; color: white; text-decoration: none; padding: 10px 20px; border-radius: 6px; font-weight: 600; font-size: 14px;">+ Tambah Kelas Baru</a>
+    </div>
 
     <div class="class-grid">
         <?php
