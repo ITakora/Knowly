@@ -73,12 +73,7 @@ if ($stmt_class) {
         .btn-yt { background: #ffffff; border: 1px solid #E2E8F0; color: #1D63ED; text-decoration: none; font-size: 12px; font-weight: 600; padding: 6px 14px; border-radius: 6px; transition: 0.2s; margin-right: 5px; cursor: pointer;}
         .btn-yt:hover {background: #EFF6FF;}
         .empty-materi { text-align: center; color: #94A3B8; font-size: 13px; padding: 30px 0; }
-        .bottom-actions { display: flex; gap: 15px; margin-top: 25px; padding-top: 20px; border-top: 1px dashed #E5E7EB; }
-        .btn-exam { flex: 1; padding: 12px; border-radius: 8px; text-align: center; text-decoration: none; font-weight: 600; font-size: 14px; color: #ffffff; transition: 0.2s; }
-        .btn-uts { background-color: #1D63ED; }
-        .btn-uts:hover { background-color: #154CBD; }
-        .btn-uas { background-color: #1D63ED; }
-        .btn-uas:hover { background-color: #154CBD; }
+
         .modal-overlay {display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.85);z-index: 1000; justify-content: center; align-items: center;backdrop-filter: blur(4px);}
         .modal-content {width: 90%; max-width: 800px;background: #000; border-radius: 12px;position: relative; box-shadow: 0 25px 50px rgba(0,0,0,0.25);}
         .close-modal {position: absolute;top: -20px; right: 0px; background: #DC2626; color: white; width: 35px; height: 35px;border-radius: 50%; display: flex; justify-content: center; align-items: center;font-size: 20px; font-weight: bold; cursor: pointer;border: 2px solid #fff; transition: 0.2s;z-index: 10;}

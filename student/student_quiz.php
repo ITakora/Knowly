@@ -10,6 +10,13 @@ if (!isset($_SESSION['username'])) {
 $id_material = isset($_GET['id_materi']) ? intval($_GET['id_materi']) : 0;
 $id_student = $_SESSION['user_id'];
 
+$sql_class = "SELECT id_class FROM materials WHERE id_material = ?";
+$stmt_class = $conn->prepare($sql_class);
+$stmt_class->bind_param("i", $id_material);
+$stmt_class->execute();
+$row_class = $stmt_class->get_result()->fetch_assoc();
+$id_class = $row_class['id_class'];
+
 $sql_cek = "SELECT score FROM quiz_results WHERE id_material = ? AND id_user = ?";
 $stmt_cek = $conn->prepare($sql_cek);
 $stmt_cek->bind_param("ii", $id_material, $id_student);
@@ -99,6 +106,10 @@ $result_soal = $stmt_soal->get_result();
             <p style="font-size: 14px; color: #15803D;">Nilai Akhir Anda:</p>
             <h1 style="font-size: 60px; color: #22C55E; margin: 10px 0;"><?= $nilai_akhir ?></h1>
             <p style="font-size: 12px; color: #666;">Nilai sudah tersimpan otomatis di database pengajar.</p>
+
+            <a href="student_list_materi.php?id=<?= $id_class ?>" class="btn-back" style="margin-top: 20px; display: inline-block; text-decoration: none; text-align: center; margin-right: 10px;">
+                ← Kembali ke Materi
+            </a>
         </div>
 
     <?php elseif ($result_soal->num_rows > 0): ?>

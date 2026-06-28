@@ -68,8 +68,9 @@ if(!$data) {
         </div>
 
         <div class="form-group" style="background: #F8FAFC; padding: 15px; border-radius: 8px; border: 1px solid #E2E8F0;">
-            <label style="color: #334155;">Ganti Berkas Dokumen (Kosongkan jika tidak diubah)</label>
-            <input type="file" name="file_materi">
+            <label style="color: #334155;">Ganti Berkas (Kosongkan jika tidak diubah)</label>
+
+            <input type="file" name="file_materi" accept=".pdf, .doc, .docx, .ppt, .pptx, .jpg, .png, .mp4, .mkv, .avi">
 
             <?php if(!empty($file_name)): ?>
                 <small style="color: #64748B; display:block; margin-top:8px;">
