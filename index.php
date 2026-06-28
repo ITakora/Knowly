@@ -28,7 +28,7 @@ require_once 'includes/header.php';
         <h1 class="text-6xl font-bold  mt-5">Dengan <span  class="text-techblue">Know</span>  <span class="text-softgray">ly</span></h1>
         <p class="text-xl mt-5">Kami menyediakan berbagai macam materi berbagai bidang yang dapat diakses secara gratis</p>
 
-        <a href=""
+        <a href="auth/login_user.php"
            class="self-start mt-8 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700">
             Mulai Belajar
         </a>
