@@ -40,6 +40,7 @@ if ($stmt_class) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Materi</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
         body { background-color: #FAFAFB; color: #111111; padding-bottom: 60px; }
@@ -96,6 +97,14 @@ if ($stmt_class) {
                 </div>
                 <div class="panel-header">
                     <h3 class="panel-heading">Daftar Berkas & Materi Kelas</h3>
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <div style="position: relative;">
+                            <i class="ti ti-search" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); color: #9CA3AF; font-size: 14px;"></i>
+                            <input type="text" id="searchMateri" placeholder="Cari materi..."
+                                   oninput="filterMateri(this.value)"
+                                   style="padding: 7px 12px 7px 32px; font-size: 13px; border: 1px solid #E5E7EB; border-radius: 8px; outline: none; font-family: 'Poppins', sans-serif; width: 200px; color: #111;">
+                        </div>
+                    </div>
                 </div>
                 <div class="materi-container">
                     <?php
@@ -199,4 +208,14 @@ if ($stmt_class) {
     }
 </script>
 </body>
+<script>
+    function filterMateri(query) {
+        const items = document.querySelectorAll('.materi-item');
+        const q = query.toLowerCase();
+        items.forEach(item => {
+            const title = item.querySelector('h5').textContent.toLowerCase();
+            item.style.display = title.includes(q) ? 'flex' : 'none';
+        });
+    }
+</script>
 </html>
