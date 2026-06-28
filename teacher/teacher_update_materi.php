@@ -89,16 +89,16 @@ if(!$data) {
             <?php endif; ?>
         </div>
 
-        <div class="switch-container">
-            <div>
-                <span style="font-size: 14px; font-weight: 600; color: #166534; display: block;">Aktifkan Akses Quiz</span>
-                <small style="color: #16A34A; font-size: 12px;">Jika aktif, mahasiswa dapat melihat dan mengerjakan quiz.</small>
-            </div>
-<!--            <label class="switch">-->
-<!--                <input type="checkbox" name="status_quiz" value="1" --><?php //echo ($status_quiz == 1) ? 'checked' : ''; ?><!-->-->
-<!--                <span class="slider"></span>-->
+<!--        <div class="switch-container">-->
+<!--            <div>-->
+<!--                <span style="font-size: 14px; font-weight: 600; color: #166534; display: block;">Aktifkan Akses Quiz</span>-->
+<!--                <small style="color: #16A34A; font-size: 12px;">Jika aktif, mahasiswa dapat melihat dan mengerjakan quiz.</small>-->
+<!--            </div>-->
+<!--         <label class="switch">-->
+<!--                <input type="checkbox" name="status_quiz" value="1" --><?php ////echo ($status_quiz == 1) ? 'checked' : ''; ?><!--<!-->
+<!--               <span class="slider"></span>-->
 <!--            </label>-->
-        </div>
+<!--        </div>-->
 
         <div class="footer-buttons">
 

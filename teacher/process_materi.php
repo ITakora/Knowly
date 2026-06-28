@@ -86,11 +86,11 @@ if ($aksi == 'update') {
     }
 
 
-    $sql = "UPDATE materials SET tittle_material = ?, file_name = ?, youtube_url = ?, status_quiz = ? WHERE id_material = ?";
+    $sql = "UPDATE materials SET tittle_material = ?, file_name = ?, youtube_url = ? WHERE id_material = ?";
     $stmt = $conn->prepare($sql);
 
     if ($stmt) {
-        $stmt->bind_param("sssii", $judul, $file_name, $youtube_url, $status_quiz, $id_material);
+        $stmt->bind_param("sssi", $judul, $file_name, $youtube_url,  $id_material);
         $stmt->execute();
     }
 

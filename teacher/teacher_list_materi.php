@@ -4,9 +4,6 @@ require_once '../config/db.php';
 include '../includes/header_teacher.php';
 
 
-
-
-
 $role_sekarang = $_SESSION['role'];
 $id_class = isset($_GET['modul']) ? intval($_GET['modul']) : 0;
 

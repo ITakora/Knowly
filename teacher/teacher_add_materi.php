@@ -41,8 +41,11 @@ $id_class = isset($_GET['modul']) ? intval($_GET['modul']) : 0;
         </div>
 
         <div class="form-group" style="background: #F8FAFC; padding: 15px; border-radius: 8px; border: 1px solid #E2E8F0;">
-            <label style="color: #334155;">Upload Berkas Dokumen (Kosongkan jika hanya link YouTube)</label>
-            <input type="file" name="file_materi">
+            <label style="color: #334155;">Upload Berkas (Mendukung Dokumen, Gambar, & Video lokal)</label>
+
+            <input type="file" name="file_materi" accept=".pdf, .doc, .docx, .ppt, .pptx, .jpg, .png, .mp4, .mkv, .avi">
+
+
         </div>
 
         <div class="form-group" style="background: #FEF2F2; padding: 15px; border-radius: 8px; border: 1px solid #FECACA; margin-top: 20px;">
