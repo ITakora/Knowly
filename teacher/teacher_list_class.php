@@ -39,6 +39,7 @@ $inisial_avatar = strtoupper(substr($nama_pengguna, 0, 1));
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Know ly - Dashboard E-Learning</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
         body { background-color: #FAFAFB; color: #111111; padding-bottom: 60px; }
@@ -92,11 +93,17 @@ $inisial_avatar = strtoupper(substr($nama_pengguna, 0, 1));
 <div class="container" style="margin-top: 20px;">
     <h2 class="section-title">Daftar Kelas Anda</h2>
 
-    <div style=" margin-bottom: 25px; display: flex; justify-content: space-between; align-items: center;">
+
+    <div style="margin-bottom: 25px; display: flex; justify-content: space-between; align-items: center;">
 
         <a href="teacher_add_class.php" style="background: #1A73E8; color: white; text-decoration: none; padding: 10px 20px; border-radius: 6px; font-weight: 600; font-size: 14px;">+ Tambah Kelas Baru</a>
-    </div>
 
+        <div style="position: relative;">
+            <i class="ti ti-search" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); color: #9CA3AF; font-size: 14px;"></i>
+            <input type="text" id="searchKelas" placeholder="Cari kelas..." oninput="filterKelas(this.value)"
+                   style="padding: 7px 12px 7px 32px; font-size: 13px; border: 1px solid #E5E7EB; border-radius: 8px; outline: none; font-family: 'Poppins', sans-serif; width: 200px; color: #111;">
+        </div>
+    </div>
     <div class="class-grid">
         <?php
         if ($result->num_rows > 0) {
@@ -139,4 +146,14 @@ $inisial_avatar = strtoupper(substr($nama_pengguna, 0, 1));
 </div>
 
 </body>
+<script>
+    function filterKelas(query) {
+        const cards = document.querySelectorAll('.class-card');
+        const q = query.toLowerCase();
+        cards.forEach(card => {
+            const name = card.querySelector('h3').textContent.toLowerCase();
+            card.style.display = name.includes(q) ? 'flex' : 'none';
+        });
+    }
+    </script>
 </html>
