@@ -11,6 +11,20 @@ $stmt = $conn -> prepare($sql);
 $stmt -> execute();
 $result = $stmt -> get_result();
 
+if (isset($_GET['aksi']) && $_GET['aksi'] == 'delete_kelas') {
+    $id_kelas = isset($_GET['id']) ? intval($_GET['id']) : 0;
+
+    if ($id_kelas > 0) {
+        $sql_del = "DELETE FROM class WHERE id = ?";
+        $stmt_del = $conn->prepare($sql_del);
+        $stmt_del->bind_param("i", $id_kelas);
+        $stmt_del->execute();
+
+        header("Location: teacher_list_class.php");
+        exit();
+    }
+}
+
 
 
 
@@ -85,28 +99,36 @@ $inisial_avatar = strtoupper(substr($nama_pengguna, 0, 1));
 
     <div class="class-grid">
         <?php
-
         if ($result->num_rows > 0) {
-
             while($row = $result->fetch_assoc()) {
                 ?>
-                <a href="teacher_list_materi.php?modul=<?= $row['id']; ?>" class="class-card">
-                    <div class="class-card-body">
-                        <span class="class-badge"><?= htmlspecialchars($row['tipe']); ?></span>
+                <div class="class-card" style="position: relative;">
 
-                        <h3><?= htmlspecialchars($row['name']); ?></h3>
+                    <a href="?aksi=delete_kelas&id=<?= $row['id']; ?>"
+                       onclick="return confirm('Yakin ingin menghapus kelas ini? Semua materi di dalamnya akan ikut terhapus!');"
+                       style="position: absolute; top: 15px; right: 15px;  color: #DC2626; padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; text-decoration: none; z-index: 10; border: 1px solid; transition: 0.2s;">
+                        Hapus
+                    </a>
 
-                        <div class="meta-group">
-                            <div class="class-meta">
-                                <span class="meta-label">Kode Modul</span>
-                                <span class="meta-value">MOD-00<?= $row['id']; ?></span>
+                    <a href="teacher_list_materi.php?modul=<?= $row['id']; ?>" style="text-decoration: none; color: inherit; display: block; height: 100%;">
+                        <div class="class-card-body">
+                            <span class="class-badge"><?= htmlspecialchars($row['tipe']); ?></span>
+
+                            <h3><?= htmlspecialchars($row['name']); ?></h3>
+
+                            <div class="meta-group">
+                                <div class="class-meta">
+                                    <span class="meta-label">Kode Modul</span>
+                                    <span class="meta-value">MOD-00<?= $row['id']; ?></span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="class-card-footer">
-                        Masuk Ruang Kelas →
-                    </div>
-                </a>
+                        <div class="class-card-footer">
+                            Masuk Ruang Kelas →
+                        </div>
+                    </a>
+
+                </div>
                 <?php
             }
         } else {
