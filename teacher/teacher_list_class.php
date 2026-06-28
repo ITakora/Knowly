@@ -1,7 +1,7 @@
 <?php
 
 require_once '../config/db.php';
-include '../includes/header_teacher.php';
+include '../includes/header_teacher_student.php';
 
 
 $id_class = isset($_GET['modul']) ? intval($_GET['modul']) : 0;

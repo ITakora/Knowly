@@ -1,6 +1,6 @@
 <?php
 require_once '../config/db.php';
-include '../includes/header_teacher.php';
+include '../includes/header_teacher_student.php';
 
 if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
     header("Location: ../index.php");

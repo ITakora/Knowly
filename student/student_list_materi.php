@@ -2,7 +2,7 @@
 
 require_once '../config/db.php';
 require_once '../helper/embed_url.php';
-include '../includes/header_teacher.php';
+include '../includes/header_teacher_student.php';
 
 if (!isset($_SESSION['username'])) {
     header("Location: ../index.php");

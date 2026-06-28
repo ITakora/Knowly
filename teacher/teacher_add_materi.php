@@ -1,6 +1,6 @@
 <?php
 require_once '../config/db.php';
-include '../includes/header_teacher.php';
+include '../includes/header_teacher_student.php';
 
 
 

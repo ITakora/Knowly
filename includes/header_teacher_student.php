@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-// Proteksi mendasar: Jika belum login, tendang paksa balik ke halaman login.php
+
 if (!isset($_SESSION['username'])) {
     header("Location: ../index.php");
     exit;
