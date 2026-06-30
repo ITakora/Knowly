@@ -78,6 +78,9 @@ $result = $stmt->get_result();
                             <a href="teacher_add_quiz.php?id_material=<?= $row['id_material'] ?>" style="border: 1px solid #1A73E8; color: #1A73E8; text-decoration: none; padding: 8px 16px; border-radius: 6px; font-size: 14px;">
                                 Buat Quiz
                             </a>
+                            <a href="teacher_list_quiz_result.php?id_material=<?= $row['id_material'] ?>" style="border: 1px solid #1A73E8; color: #1A73E8; text-decoration: none; padding: 8px 16px; border-radius: 6px; font-size: 14px;">
+                                Lihat nilai Quiz
+                            </a>
                         </div>
                         <?php if ($role_sekarang == 'admin'): ?>
                             <div style="display: flex; gap: 10px;">
