@@ -32,8 +32,10 @@
 <header class="bg-white border-b border-gray-200">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         <a href="" class="text-4xl font-brand font-bold -ml-40 ">
-            <span class="text-techblue">Know</span>
-            <span class="text-softgray">ly</span>
+<!--            <span class="text-techblue">Know</span>-->
+<!--            <span class="text-softgray">ly</span>-->
+
+            <p  class="text-techblue">Know<span class="text-softgray">ly</span></p>
 
 
         </a>

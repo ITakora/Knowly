@@ -12,7 +12,7 @@ $sql = "SELECT * FROM materials WHERE id_class = ?";
 $params = [$id_class];
 $types = "i";
 
-// 3. If there is a search, add it
+
 if (isset($_GET['search']) && !empty($_GET['search'])) {
     $search = '%' . $_GET['search'] . '%';
     $sql .= " AND tittle_material LIKE ?";

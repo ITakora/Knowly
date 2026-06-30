@@ -25,7 +25,7 @@ require_once 'includes/header.php';
 <section id="home" class="container  flex items-center justify-between mr-10" >
     <div class=" flex flex-col  mx-auto mt-28">
         <h1 class="text-6xl font-bold  mt-10">Belajar Apapun di Manapun</h1>
-        <h1 class="text-6xl font-bold  mt-5">Dengan <span  class="text-techblue">Know</span>  <span class="text-softgray">ly</span></h1>
+        <h1 class="text-6xl font-bold  mt-5">Dengan  <span  class="text-techblue">Know<span class="text-softgray">ly</span></span></h1>
         <p class="text-xl mt-5">Kami menyediakan berbagai macam materi berbagai bidang yang dapat diakses secara gratis</p>
 
         <a href="auth/login_user.php"
@@ -50,54 +50,15 @@ require_once 'includes/header.php';
 </section>
 
 
-<section id="program" class="container mx-auto mt-[420px] mb-[380px]">
+
+<section id="program" class="container mx-auto mt-[450px] mb-[330px]">
 
    <div class="flex flex-col items-center   gap-10 ">
        <h1 class="text-4xl font-bold">Program Kami</h1>
-       <p class="text-xl mt-[50px]">Platform kami menyediakan berbagai materi yang dibutuhkan untuk siapapun yang ingin belajar.</p>
+       <p class="text-xl mt-[20px] mb-[20px]">Platform kami menyediakan berbagai materi yang dibutuhkan untuk siapapun yang ingin belajar.</p>
    </div>
 
     <div class="flex justify-center items-center gap-12  " >
-        <div class=" relative  bg-techblue p-10  rounded-xl shadow-lg mt-[300px]">
-            <div class="absolute -top-[290px] left-1/2 transform -translate-x-1/2 " >
-                <dotlottie-wc
-                        src="assets/web.lottie"
-                        speed="1"
-                        style="width: 380px; height: 380px"
-                        mode="forward"
-                        loop
-                        autoplay
-                ></dotlottie-wc>
-
-            </div>
-
-            <h3 class="text-2xl font-semibold  text-white">Web</h3>
-            <p class="mt-3 text-white ">
-                Pelajari cara penggunaan HTML, CSS, dan JavaScript untuk membuat web yang interaktif dan responsif.
-            </p>
-
-        </div>
-
-        <div class=" relative bg-techblue p-10 rounded-xl shadow-lg mt-[300px]">
-
-            <div class="absolute -top-[280px] left-1/2 transform -translate-x-1/2 ">
-                <dotlottie-wc
-                        src="assets/mobile.lottie"
-                        speed="1"
-                        style="width: 380px; height: 380px"
-                        mode="forward"
-                        loop
-                        autoplay
-                ></dotlottie-wc>
-            </div>
-
-            <h3 class="text-2xl font-semibold text-white">Mobile</h3>
-            <p class="mt-3 text-white">
-                Pelajari cara membuat aplikasi Android dan iOS dengan menggunakan Kotlin dan Swift maupun Flutter.
-            </p>
-
-        </div>
-
         <div class=" relative bg-techblue p-10 rounded-xl shadow-lg mt-[300px]">
             <div class="absolute -top-[310px] left-1/2 transform -translate-x-1/2  ">
                 <dotlottie-wc
@@ -109,9 +70,48 @@ require_once 'includes/header.php';
                         autoplay
                 ></dotlottie-wc>
             </div>
-            <h3 class="text-2xl font-semibold text-white">Backend</h3>
+
+            <h3 class="text-2xl font-semibold  text-white">Technology</h3>
+            <p class="mt-3 text-white ">
+                Mempelajari cara membuat Website, Aplikasi mobile, serta API menggunakan Bahasa pemoggraman yang Modern.
+            </p>
+
+        </div>
+
+        <div class=" relative bg-techblue p-10 rounded-xl shadow-lg mt-[300px]">
+
+            <div class="absolute -top-[330px] left-1/2 transform -translate-x-1/2 ">
+                <dotlottie-wc
+                        src="assets/bussiness.lottie"
+                        speed="1"
+                        style="width: 380px; height: 380px"
+                        mode="forward"
+                        loop
+                        autoplay
+                ></dotlottie-wc>
+            </div>
+
+            <h3 class="text-2xl font-semibold text-white">Bisnis</h3>
             <p class="mt-3 text-white">
-                Pelajari cara membuat sebuah server dan belajar database untuk membuat backend yang berkualitas.
+                Pelajari bagaimana membuat bisnis berkualitas dan pelajari juga tips dan trik untuk mengembangkan bisnis.
+            </p>
+
+        </div>
+
+        <div class=" relative bg-techblue p-10 rounded-xl shadow-lg mt-[300px]">
+            <div class="absolute -top-[310px] left-1/2 transform -translate-x-1/2  ">
+                <dotlottie-wc
+                        src="assets/design.lottie"
+                        speed="1"
+                        style="width: 350px; height: 350px"
+                        mode="forward"
+                        loop
+                        autoplay
+                ></dotlottie-wc>
+            </div>
+            <h3 class="text-2xl font-semibold text-white">Design</h3>
+            <p class="mt-3 text-white">
+                Pelajari cara membuat design yang menarik untuk membuat website, aplikasi, dan juga produk.
             </p>
 
         </div>

@@ -19,16 +19,22 @@ if ($aksi == 'insert') {
     $file_name   = NULL;
 
     if (isset($_FILES['file_materi']) && $_FILES['file_materi']['error'] == 0) {
-        $target_dir = "uploads/";
+        $target_dir = __DIR__ . "/uploads/";
+
+        if (!is_dir($target_dir)) {
+            mkdir($target_dir, 0775, true);
+        }
 
         $original_name = basename($_FILES['file_materi']['name']);
-
         $safe_name = str_replace(" ", "_", $original_name);
+
         $file_name = time() . "_" . $safe_name;
 
         $target_file = $target_dir . $file_name;
 
-        move_uploaded_file($_FILES['file_materi']['tmp_name'], $target_file);
+        if (!move_uploaded_file($_FILES['file_materi']['tmp_name'], $target_file)) {
+            die("Upload failed.");
+        }
     }
 
     $sql = "INSERT INTO materials (id_class, tittle_material, file_name, youtube_url) VALUES (?, ?, ?, ?)";
@@ -65,22 +71,21 @@ if ($aksi == 'update') {
 
     if (isset($_FILES['file_materi']) && $_FILES['file_materi']['name'] != '') {
         if ($_FILES['file_materi']['error'] == 0) {
-            $target_dir = "uploads/";
+            $target_dir = __DIR__ . "/uploads/";
 
             if (!is_dir($target_dir)) {
-                mkdir($target_dir, 0777, true);
+                mkdir($target_dir, 0775, true);
             }
 
             $original_name = basename($_FILES['file_materi']['name']);
             $safe_name = str_replace(" ", "_", $original_name);
-            $new_file_name = time() . "_" . $safe_name;
-            $target_file = $target_dir . $new_file_name;
 
-            if (move_uploaded_file($_FILES['file_materi']['tmp_name'], $target_file)) {
-                if (!empty($file_name) && file_exists($target_dir . $file_name)) {
-                    unlink($target_dir . $file_name);
-                }
-                $file_name = $new_file_name;
+            $file_name = time() . "_" . $safe_name;
+
+            $target_file = $target_dir . $file_name;
+
+            if (!move_uploaded_file($_FILES['file_materi']['tmp_name'], $target_file)) {
+                die("Upload failed.");
             }
         }
     }
